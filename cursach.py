@@ -30,33 +30,7 @@ def matrix_to_adj_dict(matrix):
     return graph
 
 
-def dijkstra(graph, start):
-    # Инициализация расстояний
-    distances = {node: float('infinity') for node in graph}
-    distances[start] = 0
-    
-    # Очередь с приоритетом
-    priority_queue = [(0, start)]
-    
-    while priority_queue:
-        current_distance, current_node = heapq.heappop(priority_queue)
-        
-        # Если найден более короткий путь, пропускаем
-        if current_distance > distances[current_node]:
-            continue
-            
-        # Обход соседей
-        for neighbor, weight in graph[current_node].items():
-            distance = current_distance + weight
-            
-            # Если найден более короткий путь до соседа
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(priority_queue, (distance, neighbor))
-    
-    return distances
-
-def shortest_path(graph, start, end):
+def deikstra(graph, start, end):
     # Инициализация
     distances = {vertex: float('inf') for vertex in graph}
     previous = {vertex: None for vertex in graph}  # для восстановления пути
@@ -106,14 +80,15 @@ def main():
 
 
     G = matrix_to_adj_dict(G)
-    print(G)
+    for vertex, neighbors in G.items():
+        print(vertex, neighbors)
 
     st = int(input("Введите вершину для старта:\t"))
     ed = int(input("Введите конечную вершину:\t"))
 
     # print(dijkstra(G, st))
 
-    rasstoyanie, put = shortest_path(G, st, ed)
+    rasstoyanie, put = deikstra(G, st, ed)
 
     print(rasstoyanie)
     print(put)
