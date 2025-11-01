@@ -86,12 +86,9 @@ def main():
     st = int(input("Введите вершину для старта:\t"))
     ed = int(input("Введите конечную вершину:\t"))
 
-    # print(dijkstra(G, st))
-
     rasstoyanie, put = deikstra(G, st, ed)
 
-    print(rasstoyanie)
-    print(put)
+    print(f"\nпройденное расстояние {rasstoyanie}\n\nпройденный путь {put}\n")
 
 
 if __name__ == "__main__":
