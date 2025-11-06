@@ -16,6 +16,15 @@ def generate_adjacency_matrix(n, density=0.3, weight_range=()):
     return matrix.tolist()
 
 
+def matrix_from_file2(filename):
+    return np.loadtxt(filename).tolist()
+
+def matrix_to_file(filename, G):
+    pass
+
+def matrix_and_path_to_file(filename, G, path):
+    pass
+
 def matrix_to_adj_dict(matrix):
     n = len(matrix)
     graph = {}
@@ -72,11 +81,15 @@ def deikstra(graph, start, end):
     return distances[end], path
 
 
-def main():
-    razm = int(input("Введитек количество вершин в графе:\t"))
-    
+def choose(var):
+    if var == 1:
+        razm = int(input("Введите количество вершин в графе:\t"))
+        return generate_adjacency_matrix(razm, density=0.4, weight_range=(0, 100))
+    if var == 2:
+        return matrix_from_file2("matrica.txt")
 
-    G = generate_adjacency_matrix(razm, density=0.4, weight_range=(0, 100))
+def main():
+    G = choose(int(input("Выберите случайную генерацию графа(ввод 1) или ввод с файла(ввод 2)")))
 
 
     G = matrix_to_adj_dict(G)
@@ -97,11 +110,11 @@ if __name__ == "__main__":
 
     """ пользовательский интерфейс
     возможность генереации матрицы
-    возможность считывания с файла
+    возможность считывания с файла+
     возможность задания ориентированного и неоринтированного
 
-    иметь возможность сохранить граф в файл
-    возможность сохранения результата
+    иметь возможность сохранить граф в файл+
+    возможность сохранения результата+
 
 
     показ графа
