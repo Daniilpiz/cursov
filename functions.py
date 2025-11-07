@@ -42,7 +42,7 @@ def matrix_to_file(filename, G):
 def matrix_and_path_to_file(filename, G, path):
     try:
         with open(filename, 'a', encoding='utf-8') as f:
-            f.write("Матрица смежности:\n")
+            f.write("\nМатрица смежности:\n")
             for row in G:
                 f.write(' '.join(map(str, row)) + '\n')
             
