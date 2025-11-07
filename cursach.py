@@ -1,4 +1,6 @@
 from functions import *
+from chooses import *
+
 
 def main():
     G = choose_1(int(input("Выберите случайную генерацию графа(ввод 1) или ввод с файла(ввод 2)")))
@@ -18,7 +20,7 @@ def main():
     rasstoyanie, put = deikstra(G, st, ed)
 
     print(f"\nпройденное расстояние {rasstoyanie}\n\nпройденный путь {put}\n")
-    matrix_and_path_to_file("result.txt", G_1, put)
+    fw.matrix_and_path_to_file("result.txt", G_1, put)
 
 
 if __name__ == "__main__":

@@ -29,36 +29,6 @@ def generate_adjacency_matrix_or(n, density=0.3, weight_range=(0, 100)):
     return matrix.tolist()
 
 
-def matrix_from_file(filename):
-    return np.loadtxt(filename).tolist()
-
-def matrix_to_file(filename, G):
-    with open(filename, 'a') as filename:
-        for i in range(len(G)):
-            filename.write(' '.join(str(G[i]) + '\n'))
-    # np.savetxt("graf.txt", np.matrix(G, dtype="int32", copy=True), fmt='%d')
-
-
-def matrix_and_path_to_file(filename, G, path):
-    try:
-        with open(filename, 'a', encoding='utf-8') as f:
-            f.write("\nМатрица смежности:\n")
-            for row in G:
-                f.write(' '.join(map(str, row)) + '\n')
-            
-            if path:
-                f.write(f"\nКратчайший путь: {' -> '.join(map(str, path))}\n")
-                # Вычисляем длину пути
-                path_length = 0
-                for i in range(len(path) - 1):
-                    path_length += G[path[i]][path[i+1]]
-                f.write(f"Длина пути: {path_length}\n")
-            else:
-                f.write("\nПуть не найден\n")
-        print(f"Матрица и путь сохранены в файл {filename}")
-    except Exception as e:
-        print(f"Ошибка при сохранении файла: {e}")
-
 def matrix_to_adj_dict(matrix):
     n = len(matrix)
     graph = {}
@@ -113,24 +83,3 @@ def deikstra(graph, start, end):
         return float('inf'), []
     
     return distances[end], path
-
-
-def choose_1(var):
-    if var == 1:
-        razm = int(input("Введите количество вершин в графе:\t"))
-        vai = int(input("Выберите ориентированный(ввод 1) или неориентированный граф(ввод 2)"))
-        return choose_2(razm, vai)
-    if var == 2:
-        return matrix_from_file("matrica.txt")
-    
-def choose_2(n, vari):
-    if vari ==1:
-        return generate_adjacency_matrix_or(n)
-    if vari == 2:
-        return generate_adjacency_matrix_neor(n)
-
-def choose_3(vari, G):
-    if vari ==1:
-        matrix_to_file("graf.txt", G)
-    if vari ==2:
-        pass
