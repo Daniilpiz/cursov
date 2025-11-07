@@ -33,7 +33,11 @@ def matrix_from_file(filename):
     return np.loadtxt(filename).tolist()
 
 def matrix_to_file(filename, G):
-    pass
+    with open(filename, 'a') as filename:
+        for i in range(len(G)):
+            filename.write(' '.join(str(G[i]) + '\n'))
+    # np.savetxt("graf.txt", np.matrix(G, dtype="int32", copy=True), fmt='%d')
+
 
 def matrix_and_path_to_file(filename, G, path):
     pass
@@ -107,3 +111,9 @@ def choose_2(n, vari):
         return generate_adjacency_matrix_or(n)
     if vari == 2:
         return generate_adjacency_matrix_neor(n)
+
+def choose_3(vari, G):
+    if vari ==1:
+        matrix_to_file("graf.txt", G)
+    if vari ==2:
+        pass
