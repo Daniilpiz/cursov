@@ -1,6 +1,7 @@
 from functions import *
 from chooses import *
 
+#filework - fw
 
 def main():
     G = choose_1(int(input("Выберите случайную генерацию графа(ввод 1) или ввод с файла(ввод 2)")))
