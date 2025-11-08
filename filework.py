@@ -8,6 +8,7 @@ def matrix_to_file(filename, G):
     with open(filename, 'a') as filename:
         for i in range(len(G)):
             filename.write(' '.join(str(G[i]) + '\n'))
+        filename.write("\n")
     # np.savetxt("graf.txt", np.matrix(G, dtype="int32", copy=True), fmt='%d')
 
 
