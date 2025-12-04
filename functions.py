@@ -8,7 +8,7 @@ def start():
             st = int(input("Введите вершину для старта:\t"))
             return st
         except:
-            print("введите число!!!")
+            print("ВВЕДИ ЧИСЛО!!!")
     
 
 def end():
@@ -17,7 +17,7 @@ def end():
             ed = int(input("Введите конечную вершину:\t"))
             return ed
         except:
-            print("введите число!!!")
+            print("ВВЕДИ ЧИСЛО!!!")
 
 
 def generate_adjacency_matrix_neor(n, density=0.3, weight_range=(0, 100)):

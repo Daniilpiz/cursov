@@ -32,6 +32,8 @@ if __name__ == "__main__":
             main()
         elif v=="N" or v =="n":
             break
-        if not(v=="Y" or v=="y") and not(v=="N" or v =="n"):
-            print("Введите 'Y' или 'N'\n")
+        # else:
+        #     print("Введите 'Y' или 'N'\n")
 #добавить возможность выхода
+
+#возможность выбора дозаписи
