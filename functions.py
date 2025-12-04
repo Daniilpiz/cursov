@@ -2,6 +2,24 @@ import heapq
 import numpy as np
 import random as rd
 
+def start():
+    while True:
+        try:    
+            st = int(input("Введите вершину для старта:\t"))
+            return st
+        except:
+            print("введите число!!!")
+    
+
+def end():
+    while True:
+        try:
+            ed = int(input("Введите конечную вершину:\t"))
+            return ed
+        except:
+            print("введите число!!!")
+
+
 def generate_adjacency_matrix_neor(n, density=0.3, weight_range=(0, 100)):
     matrix = np.array([[0 for _ in range(n)] for _ in range(n)]).reshape(n, n)
     
