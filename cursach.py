@@ -1,7 +1,7 @@
-from functions import *
-from chooses import *
+from functions import deikstra, end, matrix_to_adj_dict, start  
+from chooses import choose_1, choose_3 
 
-#filework - fw
+import filework as fw
 
 def main():
     G = choose_1(int(input("Выберите случайную генерацию графа(ввод 1) или ввод с файла(ввод 2)")))
