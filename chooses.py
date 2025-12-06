@@ -1,4 +1,4 @@
-from functions import *
+from functions import generate_adjacency_matrix_neor, generate_adjacency_matrix_or  
 import filework as fw
 
 def choose_1(var):
