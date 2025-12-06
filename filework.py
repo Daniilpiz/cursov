@@ -12,24 +12,53 @@ def matrix_to_file(filename, G):
     # np.savetxt("graf.txt", np.matrix(G, dtype="int32", copy=True), fmt='%d')
 
 
-def matrix_and_path_to_file(filename, G, path, path_length, t_a, t_b):
-    try:
-        with open(filename, 'a', encoding='utf-8') as f:
+def matrix_and_path_to_file(G, path, path_length, t_a, t_b):
+    vari = int(input("Выберите дописать результат в файл(1) или перезаписать в новый(2)"))
 
-            f.write("\nМатрица смежности:\n")
-            for row in G:
-                f.write(' '.join(map(str, row)) + '\n')
+    while True:
+        if vari == 1:
+            try:
+                with open("history.txt", 'a', encoding='utf-8') as f:
 
-            f.write(f"\nПуть из вершины {t_a} в вершину {t_b}\n")
+                    f.write("\nМатрица смежности:\n")
+                    for row in G:
+                        f.write(' '.join(map(str, row)) + '\n')
+
+                    f.write(f"\nПуть из вершины {t_a} в вершину {t_b}\n")
                 
             
-            if path:
+                    if path:
                 
-                f.write(f"\nКратчайший путь: {' -> '.join(map(str, path))}\n")
-                f.write(f"Длина пути: {path_length}\n")
-            else:
-                f.write("\nПуть не найден\n")
+                        f.write(f"\nКратчайший путь: {' -> '.join(map(str, path))}\n")
+                        f.write(f"Длина пути: {path_length}\n")
+                    else:
+                        f.write("\nПуть не найден\n")
 
-        print(f"Матрица и путь сохранены в файл {filename}")
-    except Exception as e:
-        print(f"Ошибка при сохранении файла: {e}")
+                print("Матрица и путь сохранены в файл history.txt")
+            except Exception as e:
+                print(f"Ошибка при сохранении файла: {e}")
+
+            break
+        elif vari == 2:
+            try:
+                    with open("last_res.txt", 'w', encoding='utf-8') as f:
+
+                        f.write("\nМатрица смежности:\n")
+                        for row in G:
+                            f.write(' '.join(map(str, row)) + '\n')
+
+                        f.write(f"\nПуть из вершины {t_a} в вершину {t_b}\n")
+                
+            
+                        if path:
+                
+                            f.write(f"\nКратчайший путь: {' -> '.join(map(str, path))}\n")
+                            f.write(f"Длина пути: {path_length}\n")
+                        else:
+                            f.write("\nПуть не найден\n")
+
+                    print("Матрица и путь сохранены в файл last_res.txt")
+            except Exception as e:
+                    print(f"Ошибка при сохранении файла: {e}")
+            break
+        else: print("Введите 1 или 2!!!")

@@ -22,18 +22,26 @@ def main():
     rasstoyanie, put = deikstra(G, st, ed)
 
     print(f"\nпройденное расстояние {rasstoyanie}\n\nпройденный путь {put}\n")
-    fw.matrix_and_path_to_file("result.txt", G_1, put, rasstoyanie, st, ed)
+    fw.matrix_and_path_to_file(G_1, put, rasstoyanie, st, ed)
 
 if __name__ == "__main__":
     print("\n\nРЕАЛИЗАЦИЯ АЛГОРИТМА ДЕЙКСТРЫ\n\n")
-    v = input("Начать работу?(Y/N)")
+    
     while True:
-        if v=="Y" or v=="y":
+        v = input("Начать работу? (Y/N): ")
+        
+        if v == "Y" or v == "y":
             main()
-        elif v=="N" or v =="n":
+            # Спросить, хочет ли пользователь повторить
+            repeat = input("\nХотите выполнить еще один расчет? (Y/N): ")
+            if repeat == "N" or repeat == "n":
+                print("Программа завершена.")
+                break
+        elif v == "N" or v == "n":
+            print("Программа завершена.")
             break
-        # else:
-        #     print("Введите 'Y' или 'N'\n")
+        else:
+            print("Введите 'Y' или 'N'\n")
 #добавить возможность выхода
 
 #возможность выбора дозаписи
