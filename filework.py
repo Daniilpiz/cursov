@@ -1,7 +1,15 @@
-import numpy as np
-
 def matrix_from_file(filename):
-    return np.loadtxt(filename).tolist()
+    matrix = []
+    with open(filename, 'r') as f:
+        for line in f:
+            # Skip empty lines
+            line = line.strip()
+            if line:
+                # Split line by spaces and convert to integers (or floats)
+                row = [float(num) for num in line.split()]
+                matrix.append(row)
+    return matrix
+   
 
 
 def matrix_to_file(filename, G):
