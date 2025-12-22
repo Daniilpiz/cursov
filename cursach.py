@@ -17,8 +17,7 @@ def main():
 
     st = start()
     ed = end()
-    
-            
+        
     rasstoyanie, put = deikstra(G, st, ed)
 
     print(f"\nпройденное расстояние {rasstoyanie}\n\nпройденный путь {put}\n")
@@ -42,6 +41,3 @@ if __name__ == "__main__":
             break
         else:
             print("Введите 'Y' или 'N'\n")
-#добавить возможность выхода
-
-#возможность выбора дозаписи
