@@ -5,8 +5,11 @@ import filework as fw
 
 def main():
     G = choose_1(int(input("Выберите случайную генерацию графа(ввод 1) или ввод с файла(ввод 2)")))
-
-    G_1 = G.copy()
+    try:
+        G_1 = G.copy()
+    except:
+        print("Заполните файл")
+        return None
 
     vari = int(input("Записать матрицу графа в файл?(1-да, 2-нет)"))
     choose_3(vari, G)

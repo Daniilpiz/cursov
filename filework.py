@@ -1,16 +1,24 @@
 def matrix_from_file(filename):
     matrix = []
-    with open(filename, 'r') as f:
-        for line in f:
-            # Skip empty lines
-            line = line.strip()
-            if line:
-                # Split line by spaces and convert to integers (or floats)
-                row = [float(num) for num in line.split()]
-                matrix.append(row)
+    try:
+        with open(filename, 'r') as f:
+            for line in f:
+                # Skip empty lines
+                line = line.strip()
+                if line:
+                    # Split line by spaces and convert to integers (or floats)
+                    row = [float(num) for num in line.split()]
+                    matrix.append(row)
+    except FileNotFoundError:
+        print(f"Файл '{filename}' не найден!")
+        return None
+    
+    # Проверяем, не пуста ли матрица
+    if not matrix:
+        print("Файл пуст. Заполните файл или выберите случайную генерацию.")
+        return None
+    
     return matrix
-   
-
 
 def matrix_to_file(filename, G):
     with open(filename, 'a') as filename:
