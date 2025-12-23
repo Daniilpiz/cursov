@@ -23,8 +23,9 @@ def matrix_from_file(filename):
 def matrix_to_file(filename, G):
     with open(filename, 'a') as filename:
         for i in range(len(G)):
-            filename.write(' '.join(str(G[i]) + '\n'))
+            filename.write(''.join(str(G[i]) + '\n'))
         filename.write("\n")
+    # print(f"Матрица смежности записана в файл {filename}")
     # np.savetxt("graf.txt", np.matrix(G, dtype="int32", copy=True), fmt='%d')
 
 

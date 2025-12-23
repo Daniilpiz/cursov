@@ -23,5 +23,6 @@ def choose_2(n, vari):
 def choose_3(vari, G):
     if vari ==1:
         fw.matrix_to_file("graf.txt", G)
+        print("Матрица смежности записана в файл graf.txt")
     elif vari ==2:
         pass
