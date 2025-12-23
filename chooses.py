@@ -4,9 +4,11 @@ import filework as fw
 def choose_1(var):
     while True:
         if var == 1:
-            razm = int(input("Введите количество вершин в графе:\t"))
-            vai = int(input("Выберите ориентированный(ввод 1) или неориентированный граф(ввод 2)"))
-            return choose_2(razm, vai)
+            try:
+                razm = int(input("Введите количество вершин в графе:\t"))
+                vai = int(input("Выберите ориентированный(ввод 1) или неориентированный граф(ввод 2)"))
+                return choose_2(razm, vai)
+            except: print("Введите число")
         elif var == 2:
             return fw.matrix_from_file("matrica.txt")
         else:
