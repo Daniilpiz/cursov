@@ -9,7 +9,7 @@ def matrix_from_file(filename):
                     # Split line by spaces and convert to integers (or floats)
                     row = [float(num) for num in line.split()]
                     matrix.append(row)
-    except FileNotFoundError:
+    except:
         print(f"Файл '{filename}' не найден!")
         return None
     

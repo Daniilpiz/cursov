@@ -2,12 +2,16 @@ from functions import generate_adjacency_matrix_neor, generate_adjacency_matrix_
 import filework as fw
 
 def choose_1(var):
-    if var == 1:
-        razm = int(input("Введите количество вершин в графе:\t"))
-        vai = int(input("Выберите ориентированный(ввод 1) или неориентированный граф(ввод 2)"))
-        return choose_2(razm, vai)
-    elif var == 2:
-        return fw.matrix_from_file("matrica.txt")
+    while True:
+        if var == 1:
+            razm = int(input("Введите количество вершин в графе:\t"))
+            vai = int(input("Выберите ориентированный(ввод 1) или неориентированный граф(ввод 2)"))
+            return choose_2(razm, vai)
+        elif var == 2:
+            return fw.matrix_from_file("matrica.txt")
+        else:
+            print("Введите 1 или 2")
+            break
     
     
 def choose_2(n, vari):
