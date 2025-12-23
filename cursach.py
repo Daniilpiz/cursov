@@ -26,20 +26,40 @@ def main():
     fw.matrix_and_path_to_file(G_1, put, rasstoyanie, st, ed)
 
 if __name__ == "__main__":
-    print("\n\nРЕАЛИЗАЦИЯ АЛГОРИТМА ДЕЙКСТРЫ\n\n")
+    print("\n" + "="*50)
+    print("РЕАЛИЗАЦИЯ АЛГОРИТМА ДЕЙКСТРЫ".center(50))
+    print("="*50 + "\n")
     
     while True:
-        v = input("Начать работу? (Y/N): ")
+        # Улучшенный ввод с обработкой разных вариантов
+        v = input("Начать работу? (Y/Да/N/Нет): ").strip().upper()
         
-        if v == "Y" or v == "y":
-            main()
+        if v in ["Y", "ДА", "YES"]:
+            try:
+                main()
+            except Exception as e:
+                print(f"\n⚠️  Произошла ошибка: {e}")
+                print("Попробуйте снова с другими данными.\n")
+            
             # Спросить, хочет ли пользователь повторить
-            repeat = input("\nХотите выполнить еще один расчет? (Y/N): ")
-            if repeat == "N" or repeat == "n":
-                print("Программа завершена.")
-                break
-        elif v == "N" or v == "n":
-            print("Программа завершена.")
+            while True:
+                repeat = input("\nХотите выполнить еще один расчет? (Y/Да/N/Нет): ").strip().upper()
+                
+                if repeat in ["N", "НЕТ", "NO"]:
+                    print("\n" + "="*50)
+                    print("Программа завершена. Спасибо за использование!".center(50))
+                    print("="*50)
+                    exit()
+                elif repeat in ["Y", "ДА", "YES"]:
+                    print("\n" + "-"*50 + "\n")
+                    break
+                else:
+                    print("Пожалуйста, введите 'Y'/'Да' или 'N'/'Нет'")
+                    
+        elif v in ["N", "НЕТ", "NO"]:
+            print("\n" + "="*50)
+            print("Программа завершена.".center(50))
+            print("="*50)
             break
         else:
-            print("Введите 'Y' или 'N'\n")
+            print("❌ Пожалуйста, введите 'Y'/'Да' или 'N'/'Нет'\n")
