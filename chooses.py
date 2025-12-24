@@ -28,3 +28,5 @@ def choose_3(vari, G):
         print("Матрица смежности записана в файл graf.txt")
     elif vari ==2:
         pass
+    else:
+        print("Число от 1 до 2")
